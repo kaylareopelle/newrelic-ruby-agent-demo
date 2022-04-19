@@ -1,0 +1,40 @@
+# Header for testing synthetics with this app:
+# X-NewRelic-Synthetics: PwcbUEpBGh8SRk1AFWw=
+#
+# Generated with these incantations:
+# cross_app_encoding_key = 'd67afc830dab717fd163bfcb0b8b88423e9a1a3b'
+# Base64.encode64(NewRelic::Agent::Obfuscator.new(cross_app_encoding_key))
+---
+common: &default_settings
+  license_key: 47ae68e8919929c1d99fa3a1a36a0aa8c06ba690
+  enabled: true
+  app_name: 'playground (rails6 logging)'
+  host: staging-collector.newrelic.com
+  log_level: debug
+  ssl: false
+  apdex_t: 1.1
+  capture_params: true
+  transaction_tracer:
+    enabled: true
+    transaction_threshold: 0.1
+    record_sql: obfuscated
+    stack_trace_threshold: 0.5
+  error_collector:
+    enabled: true
+    capture_source: true
+  audit_log:
+    enabled: true
+
+  application_logging:
+    enabled: true
+    forwarding:
+      enabled: true
+
+development:
+  <<: *default_settings
+test:
+  <<: *default_settings
+staging:
+  <<: *default_settings
+production:
+  <<: *default_settings

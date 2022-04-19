@@ -1,0 +1,23 @@
+#!/bin/bash
+
+phase=$1
+if [ -z $phase ]; then
+  echo "Usage: $0 <previously ran phase number>"
+  echo "  ex: $0 1  # will clean up phase 1 content"
+  exit
+fi
+destination="results/phase${phase}"
+if [ -e $destination ]; then
+  echo "Error: intended destination directory '$destination' already exists!"
+  exit
+fi
+echo "Previous phase $phase results will be moved to '$destination'"
+
+mkdir -p $destination
+mv log $destination/log
+mv tmp $destination/tmp
+mkdir log
+mkdir -p tmp/pids
+touch log/.keep
+touch tmp/.keep
+touch tmp/pids/.keep
