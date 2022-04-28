@@ -55,6 +55,5 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
-gem 'newrelic_rpm', git: 'https://github.com/newrelic/newrelic-ruby-agent.git', branch: 'feature/1005-duplicate-logs-rails-development'
+gem 'newrelic_rpm'
 gem 'stackprof'
