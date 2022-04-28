@@ -8,7 +8,7 @@
 common: &default_settings
   license_key: 47ae68e8919929c1d99fa3a1a36a0aa8c06ba690
   enabled: true
-  app_name: 'playground (rails6 logging)'
+  app_name: 'code-level metrics (kayla test)'
   host: staging-collector.newrelic.com
   log_level: debug
   ssl: false
