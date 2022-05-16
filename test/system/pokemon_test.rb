@@ -14,7 +14,7 @@ class PokemonTest < ApplicationSystemTestCase
     visit pokemon_url
     click_on "New Pokemon"
 
-    fill_in "Level", with: @pokemon.level
+    fill_in "hp", with: @pokemon.hp
     fill_in "Name", with: @pokemon.name
     fill_in "Notes", with: @pokemon.notes
     fill_in "Type", with: @pokemon.type
@@ -28,7 +28,7 @@ class PokemonTest < ApplicationSystemTestCase
     visit pokemon_url
     click_on "Edit", match: :first
 
-    fill_in "Level", with: @pokemon.level
+    fill_in "HP", with: @pokemon.hp
     fill_in "Name", with: @pokemon.name
     fill_in "Notes", with: @pokemon.notes
     fill_in "Type", with: @pokemon.type

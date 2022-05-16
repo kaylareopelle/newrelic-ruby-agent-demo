@@ -18,6 +18,5 @@ module LoggingRails61
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.middleware.use(StackProf::Middleware, enabled: true, mode: :wall, interval: 500, save_every: 1)
   end
 end

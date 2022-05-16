@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  root "home#index"
+
   resources :pokemon
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :apm_logs_in_context, only: [:index, :show]
+  resources :generate_traffic, only: [:index]
+  resources :async, only: [:index]
 end

@@ -24,7 +24,12 @@ common: &default_settings
     capture_source: true
   audit_log:
     enabled: true
-
+  application_logging:
+    forwarding:
+      enabled: true
+  instrumentation:
+    thread:
+      tracing: true
 development:
   <<: *default_settings
 test:

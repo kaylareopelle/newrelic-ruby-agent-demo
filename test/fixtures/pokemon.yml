@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  level: 1
-  type: 
+  hp: 1
+  type:
   notes: MyText
 
 two:
   name: MyString
-  level: 1
-  type: 
+  hp: 1
+  type:
   notes: MyText

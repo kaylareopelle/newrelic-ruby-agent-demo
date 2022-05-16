@@ -1,0 +1,127 @@
+<article class="prose mx-auto">
+  <h1>APM Logs in Context</h1>
+
+  <p>APM logs in context connects your logs with all of your telemetry data for your apps, hosts, and other entities. Bringing all of this data together in a single tool helps you quickly:
+    <ul>
+      <li>Cut through the noise of thousands of logs when troubleshooting time-critical issues, so you automatically see only the most relevant logs.</li>
+      <li>Navigate within multiple types of telemetry data, and have the data correlate back to the original issue.</li>
+      <li>Easily drill down into more detailed information from the same place in the UI.</li>
+      <li>Find the log lines that you need to identify and resolve a problem.</li>
+    </ul>
+  </p>
+
+  <hr>
+
+  <h3>APM Logging Views</h3>
+
+  <h4><a href="https://onenr.io/0dQeVg5kawe">Application Performance Monitoring Summary Page</a></h4>
+
+  <figure>
+    <%= image_tag "apm-lic.png", height: 300 %>
+    <figcaption>Once you install a verison of the Ruby agent that supports APM logs-in-context, you'll see new widgets on the APM Summary page related to logs.</figcaption>
+  </figure>
+
+  <h4><a href="https://onenr.io/0qwL2MZvxj5">Errors Inbox</a></h4>
+
+  <figure>
+    <%= image_tag "errors-inbox-lic.png", height: 300 %>
+    <figcaption>The linking metadata the agent adds to your logs allows the logs related to your errors to appear beneath the stack trace in your Errors inbox.</figcaption>
+  </figure>
+
+  <h4><a href="https://onenr.io/0oR80E9y6RG">Distributed Tracing</a></h4>
+
+  <figure>
+    <%= image_tag "dt-lic.png", height: 300 %>
+    <figcaption>When viewing an individual trace in Distributed Tracing, click on the "Logs" tab to see associated log events.</figcaption>
+  </figure>
+
+  <h4><a href="https://onenr.io/07wkvxdqkQL">APM Logs View</a></h4>
+
+  <figure>
+    <%= image_tag "logs-lic.png", height: 300 %>
+    <figcaption>APM has its own logs view that displays all log events for your entity. This page also has a link to the main Logs product.</figcaption>
+  </figure>
+
+  <hr>
+
+  <h3>Configure your New Relic Agent to send logs</h3>
+
+  <p>
+    Starting at version 8.7.0 of the New Relic Ruby agent, logs will be automatically forwarded to New Relic Application Performance Monitoring (APM).
+    There are many options to configure in-agent logging so it meets the unique needs of your application.
+  </p>
+
+  <pre class="language-yaml"><code class="language-yaml">
+  # newrelic.yml
+
+  application_logging:
+    # If `true`, all logging-related features for the agent can be
+    # enabled or disabled independently. If `false`, all logging-related
+    # features are disabled.
+    enabled: true
+    forwarding:
+      # If `true`, the agent captures and forwards log records emitted
+      # by this application.
+      enabled: true
+      # Defines the maximum number of log records to buffer in
+      # memory at a time. The value can be any integer up to 100,000.
+      max_samples_stored: 10000
+    metrics:
+      # If `true`, the agent captures metrics related to logging for
+      # this application.
+      enabled: true
+    local_decorating:
+      # If `true`, the agent decorates logs with metadata to link
+      # to entities, hosts, traces, and spans. This requires a
+      # log forwarder to send your log files to New Relic.
+      # This should not be used when forwarding is enabled.
+      enabled: false
+  </code></pre>
+
+
+  <p>If you prefer to use environment variables, use the following values:</p>
+  <pre class="language-shell"><code class="language-shell">
+  NEW_RELIC_APPLICATION_LOGGING_ENABLED=true
+  NEW_RELIC_APPLICATION_LOGGING_FORWARDING_ENABLED=true
+  NEW_RELIC_APPLICATION_LOGGING_MAX_SAMPLES_STORED=10000
+  NEW_RELIC_APPLICATION_LOGGING_LOCAL_DECORATING_ENABLED=true
+  NEW_RELIC_APPLICATION_LOGGING_METRICS_ENABLED=true
+  </code></pre>
+
+  <hr>
+
+  <h3>Account-Level Shutoff</h3>
+
+  <p>There is an account-level toggle that can be used to disable logging for all accounts.
+  This toggle is available for users with admin or account-holder status.</p>
+
+  <h4>Click Path</h4>
+
+  <ul>
+    <li>User icon</li>
+    <li>Manage your data</li>
+    <li>Log Settings</li>
+    <li>Three dots (Right side of the ingest source entry)</li>
+    <li>Click Disable</li>
+  </ul>
+
+  <figure>
+    <%= image_tag "account-level-shutoff-1.png", height: 300 %>
+    <figcaption>Click the three dots to the right of the account you'd like to disable log forwarding.</figcaption>
+  </figure>
+
+  <figure>
+    <%= image_tag "account-level-shutoff-2.png", height: 300 %>
+    <figcaption>If you're certain you'd like to disable logs, click the red "Disable" button.</figcaption>
+  </figure>
+
+  <figure>
+    <%= image_tag "account-level-shutoff-3.png", height: 300 %>
+    <figcaption>You've successfully disabled log forwarding for the account, when you see "Disabled" under the status column for the account.</figcaption>
+  </figure>
+
+  <hr>
+  <%= link_to "Return to Demos", root_path %>
+
+</article>
+

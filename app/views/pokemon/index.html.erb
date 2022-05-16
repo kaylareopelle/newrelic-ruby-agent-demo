@@ -1,33 +1,34 @@
-<p id="notice"><%= notice %></p>
+<div class="relative max-w-5xl mx-auto pt-20 sm:pt-24 lg:pt-32">
+  <p id="notice"><%= notice %></p>
 
-<h1>Pokemon</h1>
+  <h1 class="text-indigo-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white">
+      Pokémon
+  </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Level</th>
-      <th>Poketype</th>
-      <th>Notes</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <div class="my-6 sm:mt-10 flex justify-center space-x-6 text-sm">
+    <%= link_to 'New Pokémon', new_pokemon_path, class: "bg-indigo-900 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50 text-white font-semibold h-12 px-6 rounded-lg w-full flex items-center justify-center sm:w-auto dark:bg-sky-500 dark:highlight-white/20 dark:hover:bg-sky-400"  %>
+  </div>
 
-  <tbody>
+  <div class="flex flex-wrap justify-center">
+  <div class="grid grid-cols-3 gap-4">
     <% @pokemon.each do |pokemon| %>
-      <tr>
-        <td><%= pokemon.name %></td>
-        <td><%= pokemon.level %></td>
-        <td><%= pokemon.poketype %></td>
-        <td><%= pokemon.notes %></td>
-        <td><%= link_to 'Show', pokemon %></td>
-        <td><%= link_to 'Edit', edit_pokemon_path(pokemon) %></td>
-        <td><%= link_to 'Destroy', pokemon, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <a href="/pokemon/<%= pokemon.id %>" class="hover:bg-amber-300">
+      <div class="hover:border-yellow-20">
+        <figure class="<%= background_color_by_poketype(pokemon.poketype) %> rounded-xl p-6 m-4 dark:bg-slate-800">
+          <img class="w-24 h-24 md:w-48 md:h-auto md:rounded-none rounded-full mx-auto" src="<%= pokemon.sprite %>" alt=<%= pokemon.name %>" width="384" height="512">
+          <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
+            <figcaption class="font-medium">
+              <div class="font-bold text-sky-500 dark:text-sky-400">
+                <%= pokemon.name %>
+              </div>
+              <div class="text-slate-700 dark:text-slate-500">
+                HP: <%= pokemon.hp %>, Types: <%= pokemon.poketype %>
+              </div>
+            </figcaption>
+          </div>
+        </figure>
+        </div>
+      </a>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pokemon', new_pokemon_path %>
+  </div>
+</div>

@@ -9,7 +9,7 @@ require 'json'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-101.times do |id|
+152.times do |id|
   response = URI.open("http://pokeapi.co/api/v2/pokemon/#{id + 1}/").read
   json = JSON.parse(response)
 

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind typography;
+
+
+/* @layer base {
+  h1 {
+    @apply text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight text-center dark:text-white;
+  }
+  body {
+    @apply antialiased text-slate-500 dark:text-slate-400 bg-white dark:bg-slate-900;
+  }
+  p {
+    @apply mt-6 text-lg text-slate-600 text-left dark:text-slate-400;
+  }
+  code {
+
+  }
+} */
+
+
