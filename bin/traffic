@@ -6,7 +6,7 @@ commands = [
   'curl -s http://localhost:3000/apm_logs_in_context/1 -o dev/null',
   'curl -s http://localhost:3000/pokemon -o dev/null',
   "curl -s http://localhost:3000/pokemon/[#{rand(1..150)}-152:2] -o dev/null",
-  "sleep #{rand(5..30)}"
+  "sleep #{rand(30..90)}"
 ]
 
 exec "while :; do #{commands.join(';')}; done"
